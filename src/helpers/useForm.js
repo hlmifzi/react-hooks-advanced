@@ -6,6 +6,7 @@ export const useForm = (initialValues) => {
   const res =  e  => {
     const { name, value } = e.target
     setValues({
+      ...values,
       [name] : value
     })
   }

@@ -6,11 +6,30 @@ const App = () => {
 
   const [value, handleChange] = useForm(InitialStateRegister)
 
+  const inputArr = [
+    {type: 'text' ,name: 'username' },
+    {type: 'password' ,name: 'password' },
+    {type: 'number' ,name: 'umur' },
+  ]
+  
+  const _habdleSubmit = () => {
+    console.log(value)
+  }
   return (
     <Fragment>
-     <input type="text" value={value.username} onChange={handleChange} name="username" />
-     <br/>
-     <input type="password" value={value.password} onChange={handleChange} name="password" />
+      {
+        inputArr.map((v,i)=> {
+          return (
+            <input key={i} type={v.type} value={value.name} onChange={handleChange} name={v.name} />
+          )
+        })
+      }
+
+      <button onClick={_habdleSubmit} >submit</button>
+
+
+     
+     
     </Fragment>
   );
 }
